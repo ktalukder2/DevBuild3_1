@@ -1,0 +1,105 @@
+using System;
+
+namespace Lab3._1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] studentName = { "Kutub", "Kiya", "Talukder" };
+            string[] favFood = { "Biryani", "Burger", "Pasta" };
+            string[] preTitle = { "Banker", "Sales", "Student" };
+            //string userInput = Console.ReadLine();
+            bool moreInfo = true;
+            bool favFoodAndTitle = true;
+            while (moreInfo == true)
+            {
+                try
+                {
+                    Console.WriteLine("Which Student would you like to know about? ");
+                    Console.WriteLine("Press 0 for Kutub " + "1 for Kiya or 2 for Talukder");
+
+                    int userInput = Int32.Parse(Console.ReadLine());
+
+                    if (userInput < studentName.Length)
+                    {
+                        Console.WriteLine("You have selected " + studentName[userInput]);
+                        Console.WriteLine("What would you like to know " + studentName[userInput] + "'s " + "Favorite Food or Title");
+
+                        Console.WriteLine("Press 1 for " + studentName[userInput] + "'s Favorite Food");
+                        Console.WriteLine("Press 2 for " + studentName[userInput] + "'s Title");
+                        int userChoiceInput = 0;
+                        while (userChoiceInput < 1 || userChoiceInput > 2)
+                        {
+
+                            userChoiceInput = Int32.Parse(Console.ReadLine());
+                            if (userChoiceInput == 1)
+                            {
+                                //Console.WriteLine("Please enter a valid number from the choice in order to continue between 1 and 2");
+                                //upto here  
+                                Console.WriteLine(studentName[userInput] + "'s Favorite Food is " + favFood[userInput]);
+                                // Console.WriteLine("Would You like to try again?");
+                                continue;
+                            }
+
+                            else if (userChoiceInput == 2)
+                            {
+                                Console.WriteLine(studentName[userInput] + "'s Title is " + preTitle[userInput]);
+                                continue;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Please enter option from the menu either 1 or 2");
+                            }
+
+
+
+                        }
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid number from the choice in order to continue");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Please  enter a valid number from the choice in order to continue");
+
+                }
+
+                string userloop;
+                Console.WriteLine("");
+                Console.WriteLine("Would you like to know more about other students");
+
+                Console.WriteLine("y/n");
+                userloop = Console.ReadLine().ToLower();
+
+                if (userloop == "n")
+                {
+                    moreInfo = false;
+                }
+
+                if (userloop == "y")
+                {
+                    moreInfo = true;
+                }
+                else
+                {
+                    Console.WriteLine("Thank you for using our application ");
+                }
+
+
+
+
+            }
+
+
+            // int userInput = Int32.Parse( Console.ReadLine());
+
+
+
+
+        }
+    }
+}
